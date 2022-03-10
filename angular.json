@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "rent-a-dice-front": {
+    "rent-a-dev-front": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/rent-a-dice-front",
+            "outputPath": "dist/rent-a-dev-front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "rent-a-dice-front:build:production"
+              "browserTarget": "rent-a-dev-front:build:production"
             },
             "development": {
-              "browserTarget": "rent-a-dice-front:build:development"
+              "browserTarget": "rent-a-dev-front:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rent-a-dice-front:build"
+            "browserTarget": "rent-a-dev-front:build"
           }
         },
         "test": {
@@ -109,5 +109,5 @@
       }
     }
   },
-  "defaultProject": "rent-a-dice-front"
+  "defaultProject": "rent-a-dev-front"
 }
