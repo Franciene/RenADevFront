@@ -3,6 +3,7 @@ import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { FacebookAuthProvider, GoogleAuthProvider} from "firebase/auth";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { MatDialogRef } from '@angular/material/dialog';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   senha : any;
 
 
-  constructor(private userService : UserService, private router: Router, private auth: AngularFireAuth) { }
+  constructor(private userService : UserService, private router: Router, private auth: AngularFireAuth, private dialogRef : MatDialogRef<LoginComponent>){ }
 
   ngOnInit(): void {
     
@@ -42,6 +43,7 @@ export class LoginComponent implements OnInit {
         // const user = result.user;
 
         console.log(result);
+        this.dialogRef.close();
 
         // ...
       })
