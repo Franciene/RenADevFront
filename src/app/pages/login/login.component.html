@@ -1,0 +1,10 @@
+<div class="container-geral">
+    <div class="container-box">
+        <img src="'../../../../../assets/gatinho-branco.png" width="50" height="50"><br>
+        <input [(ngModel)]="email" class="input-login" type="text" placeholder="NOME">
+        <input [(ngModel)]="senha" class="input-login" type="password" placeholder="SENHA">
+        <button class="more" (click) = "login()">ACESSAR</button>
+        <button class="btn-google" (click) = "loginGoogle()"><img src="'../../../../../assets/google.png" width="20" height="20"> ACESSAR COM GOOGLE</button>
+        <button class="btn-face" (click) = "loginFace()"><img src="'../../../../../assets/facebook.png" width="20" height="20"> ACESSAR COM FACEBOOK</button>
+    </div>
+</div>

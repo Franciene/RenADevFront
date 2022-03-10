@@ -1,0 +1,91 @@
+.container-full{
+    height: 400px;
+    background-color: #000000;
+}
+
+.container-geral{
+    width: 100%;
+    height: 508px;
+    padding-bottom: 100px;
+    background: url("../../../assets/Dog-look-up-black-background_1920x1200_black 1.png") no-repeat center;
+}
+
+.text-denounce{
+    padding: 47px;
+    font-family:'Open Sans';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 59px;
+    color: #754E4E;
+    &.m{
+        font-size: 16px;
+        line-height: 20px;
+        padding: 0px;
+        opacity: 0.5;
+    }
+}
+
+.container-denounce{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    background: #FFF2E3;
+    border-radius: 15px;
+    height: 800px;
+    width: 80%;
+    margin: 0 10%;
+}
+
+.header-title{
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 53px;
+    color: #754E4E;
+}
+
+.container-btn{
+    margin-top: 40px;
+}
+
+.btn-view{
+    border-radius: 6px;
+    background: #754E4E;
+    color: #FFF2E3;
+    border: none;
+    padding: 8px;
+    &.add-image{
+        padding: 8px 12px;
+    }
+}
+
+.input-denounce{
+    width: 327px;
+    height: 40px;
+    border: 1px solid rgba(69, 69, 69, 0.5);
+    background-color:#FFF2E3;
+    box-sizing: border-box;
+    border-radius: 6px;
+    margin: 17px 0;
+    &.m{
+        width: 127px;
+    }
+    &.g{
+        width: 527px;
+        height: 140px;
+    }
+}
+
+.container-cep{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+.container-address{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}

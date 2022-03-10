@@ -1,0 +1,44 @@
+.nav-menu{
+    display: flex;
+    width: 88%;
+    height: 41px;
+    background: #000000;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-menu{
+    cursor: pointer;
+    height: 68px;
+    left: 25px;
+    right: 25px;
+    top: calc(50% - 68px/2);
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    color: #754E4E;
+    span:hover {
+        color: #FFF2E3;
+    }
+
+}
+
+.item-img{
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.logo{
+    width: 53px;
+    margin-top: 9px;
+    cursor: pointer;
+}
+
+.mat-dialog-container{
+    background-color: #FFF2E3 !important;
+}
