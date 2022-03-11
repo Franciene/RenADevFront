@@ -17,6 +17,17 @@ html{
 
 }
 
+.container-header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.container-descr{
+    display: flex;
+    flex-direction: column;
+}
+
 .text-denounce{
     padding: 47px;
     font-family:'Open Sans';
@@ -43,6 +54,11 @@ html{
     height: 800px;
     width: 80%;
     margin: 0 10%;
+}
+
+.align-container{
+    margin: 0 50px;
+
 }
 
 .header-title{
@@ -81,23 +97,19 @@ html{
     &.g{
         width: 627px;
         height: 140px;
-        text-align: start;
-        justify-content: start;
-        display: flex;
-        flex-direction: row;
     }
 }
 
 .container-cep{
     display: flex;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: baseline;
 }
 
 .container-address{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
 }

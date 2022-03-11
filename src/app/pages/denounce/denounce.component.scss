@@ -1,6 +1,6 @@
 html{
     font-family: 'Open Sans';
-    background-color: #000000;
+    background-color: #000000 !important;
 }
 
 .container-full{
@@ -13,6 +13,7 @@ html{
     height: 508px;
     padding-bottom: 100px;
     background: url("../../../assets/Dog-look-up-black-background_1920x1200_black 1.png") no-repeat center;
+    background-color: black;
 }
 
 .text-denounce{
@@ -74,4 +75,12 @@ html{
     background: #754E4E;
     color: #FFF2E3;
     border: none;
+}
+
+.list-denounces{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }

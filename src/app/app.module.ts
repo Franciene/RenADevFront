@@ -15,12 +15,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { environment } from "src/environments/environment";
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { ViewComponent } from './pages/view/view.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NewComponent,
+    ViewComponent,
     DenounceComponent,
     LoginComponent,
     MenuComponent,
@@ -34,6 +37,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    ToastrModule.forRoot(), 
   ],
   exports: [
     MatDialogModule,

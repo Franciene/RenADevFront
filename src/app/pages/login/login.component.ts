@@ -40,11 +40,14 @@ export class LoginComponent implements OnInit {
     this.auth.signInWithPopup(provider)
       .then((result) => {
         // The signed-in user info.
-        // const user = result.user;
+        const user = {
+          'name' : result?.user?.displayName,
+          'email' : result?.user?.email
+        }; 
 
-        console.log(result);
-        this.dialogRef.close();
-
+        console.log(user);
+        localStorage.setItem("user", JSON.stringify(user));
+        window.location.reload();
         // ...
       })
       .catch((error) => {
@@ -61,7 +64,14 @@ export class LoginComponent implements OnInit {
         // The signed-in user info.
         // const user = result.user;
 
-        console.log(result);
+        const user = {
+          'name' : result?.user?.displayName,
+          'email' : result?.user?.email
+        }; 
+
+        console.log(user);
+        localStorage.setItem("user", JSON.stringify(user));
+        window.location.reload();
 
         // ...
       })

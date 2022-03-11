@@ -10,7 +10,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   login(data : any): Observable<any> {
-    return this.http.post('http://localhost:2727/users/login', data);
+    return this.http.post('https://rentadev-api.herokuapp.com/login/login', data);
   }
 
 }
