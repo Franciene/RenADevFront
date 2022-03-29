@@ -3,6 +3,7 @@ import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { FacebookAuthProvider, GoogleAuthProvider} from "firebase/auth";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { MatDialogRef } from '@angular/material/dialog';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   senha : any;
 
 
-  constructor(private userService : UserService, private router: Router, private auth: AngularFireAuth) { }
+  constructor(private userService : UserService, private router: Router, private auth: AngularFireAuth, private dialogRef : MatDialogRef<LoginComponent>){ }
 
   ngOnInit(): void {
     
@@ -39,10 +40,14 @@ export class LoginComponent implements OnInit {
     this.auth.signInWithPopup(provider)
       .then((result) => {
         // The signed-in user info.
-        // const user = result.user;
+        const user = {
+          'name' : result?.user?.displayName,
+          'email' : result?.user?.email
+        }; 
 
-        console.log(result);
-
+        console.log(user);
+        localStorage.setItem("user", JSON.stringify(user));
+        window.location.reload();
         // ...
       })
       .catch((error) => {
@@ -59,7 +64,14 @@ export class LoginComponent implements OnInit {
         // The signed-in user info.
         // const user = result.user;
 
-        console.log(result);
+        const user = {
+          'name' : result?.user?.displayName,
+          'email' : result?.user?.email
+        }; 
+
+        console.log(user);
+        localStorage.setItem("user", JSON.stringify(user));
+        window.location.reload();
 
         // ...
       })

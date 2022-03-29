@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { DenounceComponent } from './pages/denounce/denounce.component';
 import { NewComponent } from './pages/new/new.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ViewComponent } from './pages/view/view.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'history', component: DenounceComponent},
   { path: 'denounce', component: NewComponent},
   { path: 'login', component: LoginComponent},
+  { path: 'history/view/:id', component: ViewComponent},
   { path: '', pathMatch: 'full', redirectTo: '/home'}
 ];
 @NgModule({

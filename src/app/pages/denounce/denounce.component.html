@@ -6,12 +6,14 @@
             <p class="header-title">STATUS</p>
             <p></p>
         </div>
-        <div class="table-denounce">
-            <p class="info-table"> 12/12/2021 </p>
-            <p class="info-table"> APROVADO </p>
-            <button class="btn-view">VISUALIZAR</button>
+        <div class="list-denounces" *ngFor = "let denounce of list;">
+            <div class="table-denounce" >
+                <p class="info-table"> {{ denounce.date }} </p>
+                <p class="info-table"> {{ denounce.status}} </p>
+                <button class="btn-view" [routerLink]="['view/', denounce._id]" >VISUALIZAR</button>
+            </div>
+            <div class="table-line"></div><br>
         </div>
-        <div class="table-line"></div>
     </div>
 </div>
 <div class="container-full"></div>

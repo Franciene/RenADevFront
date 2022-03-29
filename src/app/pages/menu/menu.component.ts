@@ -12,9 +12,10 @@ import { LoginComponent } from '../login/login.component';
 export class MenuComponent implements OnInit {
 
   constructor(private router: Router, public dialog: MatDialog) { }
+  userLoggedIn = null;
 
   ngOnInit(): void {
-    
+    this.userLoggedIn = JSON.parse(localStorage.getItem('user') || 'null'); 
   }
 
   openDialog() {
@@ -28,6 +29,11 @@ export class MenuComponent implements OnInit {
   userLogado(){
     let text = JSON.parse(localStorage.getItem('user') || 'null'); 
     text != null ? this.router.navigateByUrl('/perfil') : this.router.navigateByUrl('/login');
+  }
+
+  logOut(){
+    localStorage.removeItem('user');
+    window.location.reload();
   }
 
 }

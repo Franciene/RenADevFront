@@ -4,31 +4,33 @@
         <p class="header-title">LOCALIZAÇÃO</p>
 
         <div class="container-cep">
-            <input class="input-denounce" type="text" placeholder="*CEP">
-            <p class="text-denounce m">NÃO SEI MEU CEP</p>
+            <input class="input-denounce" [(ngModel)]="cep" type="text" mask="00000-000" placeholder="*CEP" (keyup)="cepInput()">
+            <p class="text-denounce m"><a class="go-to-correio" href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank">NÃO SEI MEU CEP</a></p>
         </div>
 
         <div class="container-address">
-            <input class="input-denounce" type="text" placeholder="ENDEREÇO">
-            <input class="input-denounce m" type="text" placeholder="*NÚMERO">
-            <input class="input-denounce" type="text" placeholder="BAIRRO">
-            <input class="input-denounce m" type="text" placeholder="COMPLEMENTO">
+            <input class="input-denounce" [(ngModel)]="street" type="text" placeholder="ENDEREÇO">
+            <input class="input-denounce m" [(ngModel)]="number" type="text" placeholder="*NÚMERO">
+        </div>
+
+        <div class="container-address">
+            <input class="input-denounce" [(ngModel)]="district" type="text" placeholder="BAIRRO">
+            <input class="input-denounce m" [(ngModel)]="complement" type="text" placeholder="COMPLEMENTO">
         </div>
 
         <div>
             <p class="header-title">DESCRIÇÃO</p>
-            <input class="input-denounce g" type="text" placeholder="*DIGITE O OCORRIDO AQUI">
+            <textarea class="input-denounce g" [(ngModel)]="description" placeholder="*DIGITE O OCORRIDO AQUI"></textarea>
 
             <div>
-                <input type="file" class="btn-view add-image" placeholder="ADICIONAR IMAGEM" accept="image/png, image/gif, image/jpeg">
-                
+                <input [(ngModel)]="images" type="file" class="btn-view add-image" placeholder="ADICIONAR IMAGEM" accept="image/png, image/gif, image/jpeg">
             </div>
-            <input class="input-denounce" type="text" placeholder="LINK PARA O VIDEO">
+            <input class="input-denounce" [(ngModel)]="videos" type="text" placeholder="LINK PARA O VIDEO">
     
             <p class="text-denounce m">* INFORMAÇÕES OBRIGATÓRIAS</p>
         </div>
 
-        <div class="container-btn"><button class="btn-view">REGISTRAR</button></div>
+        <div class="container-btn"><button class="btn-view" (click) = "registerDenounce()" >REGISTRAR</button></div>
 
     </div>
 </div>

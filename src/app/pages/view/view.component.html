@@ -1,0 +1,35 @@
+<div class="container-geral">
+    <p class="text-denounce">DENÚNCIA </p>
+    <div class="container-denounce">
+        <div class="align-container">
+            <div class="container-header">
+                <p class="header-title">LOCALIZAÇÃO</p>
+                <p class="header-title">STATUS: {{this?.status}}</p>
+            </div>
+
+
+            <div class="container-cep">
+                <input class="input-denounce" [(ngModel)]="cep" type="text" placeholder="CEP" disabled="disabled">
+            </div>
+
+            <div class="container-address">
+                <input class="input-denounce" [(ngModel)]="street" type="text" placeholder="ENDEREÇO" disabled="disabled">
+                <input class="input-denounce m" [(ngModel)]="number" type="text" placeholder="NÚMERO" disabled="disabled">
+            </div>
+
+            <div class="container-address">
+                <input class="input-denounce" [(ngModel)]="district" type="text" placeholder="BAIRRO" disabled="disabled">
+                <input class="input-denounce m" [(ngModel)]="complement" type="text" placeholder="COMPLEMENTO" disabled="disabled">
+            </div>
+
+            <div class="container-descr">
+                <p class="header-title">DESCRIÇÃO</p>
+                <textarea class="input-denounce g" [(ngModel)]="description" disabled="disabled" placeholder="DESCRIÇÃO AQUI"></textarea>
+
+                <input class="input-denounce" [(ngModel)]="videos" type="text" placeholder="IMAGENS ADICIONADAS" disabled="disabled">
+                <input class="input-denounce" [(ngModel)]="videos" type="text" placeholder="LINK PARA O VIDEO" disabled="disabled">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-full"></div>
