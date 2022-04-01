@@ -36,6 +36,8 @@ export class ViewComponent implements OnInit {
 
     this.user = JSON.parse(localStorage.getItem('user') || 'null'); 
 
+    console.log("ROTA",this.route.url);
+
     this.route.params.subscribe(params => {
       this.denounce = params['id'];
       this.findDenounce();
