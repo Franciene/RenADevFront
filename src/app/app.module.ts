@@ -17,6 +17,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { ViewComponent } from './pages/view/view.component';
 import { ToastrModule } from 'ngx-toastr';
+import { AgmCoreModule } from '@agm/core';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,9 @@ import { ToastrModule } from 'ngx-toastr';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     ToastrModule.forRoot(), 
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCxvTc_3L8Rk8hROFDJYnHr4V7wHaUeTMY'
+    }),
   ],
   exports: [
     MatDialogModule,

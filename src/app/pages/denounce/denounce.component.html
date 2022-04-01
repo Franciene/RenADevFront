@@ -1,6 +1,16 @@
 <div class="container-geral">
     <p class="text-denounce">HISTÓRICOS DE DENÚNCIAS </p>
     <div class="container-denounce">
+        <div class="container-search">
+            <input class="input-denounce m" [(ngModel)]="start" type="text" placeholder="DATA INICIAL" >
+            <input class="input-denounce m" [(ngModel)]="end" type="text" placeholder="DATA FINAL" >
+            <input class="input-denounce m" [(ngModel)]="district" type="text" placeholder="BAIRRO" >
+            <input class="input-denounce m" [(ngModel)]="city" type="text" placeholder="CIDADE" >
+        </div>
+        <div class="container-btn-search">
+            <button class="btn-view" (click)="search()" >BUSCAR</button>
+        </div>
+
         <div class="header-table">
             <p class="header-title">DATA</p>
             <p class="header-title">STATUS</p>
@@ -8,7 +18,7 @@
         </div>
         <div class="list-denounces" *ngFor = "let denounce of list;">
             <div class="table-denounce" >
-                <p class="info-table"> {{ denounce.date }} </p>
+                <p class="info-table">{{ denounce.date | date: "shortDate" }}</p>
                 <p class="info-table"> {{ denounce.status}} </p>
                 <button class="btn-view" [routerLink]="['view/', denounce._id]" >VISUALIZAR</button>
             </div>

@@ -27,8 +27,29 @@
         </div>
         <div class="container-location">
             <p class = "text-title m" >LOCALIZAÇÃO DE DENÚNCIAS</p>
-            <img src="../../../assets/localizacao.png">
-            <div class="box-btn"><button class = "btn-search" >BUSCAR DENÚNCIA</button></div>
+            <!-- <img src="../../../assets/localizacao.png"> -->
+            <agm-map 
+                [latitude]="lat"
+                [longitude]="lng"
+                [zoom]="zoom"
+                [disableDefaultUI]="false">
+
+                <agm-marker 
+                    *ngFor="let m of markers; let i = index"
+                    (markerClick)="click(m)"
+                    [latitude]="m.lat"
+                    [longitude]="m.lng"
+                    [label]="m.label!">
+                    <agm-info-window>
+                    <strong>Informações da denúncia:</strong><br><br>
+                    <p>{{m.descr}}</p><br>
+                    <p>{{m.district}}</p><br>
+                    <button class="btn-view" [routerLink]="['/history/view/', m.id]">VER MAIS</button><br>
+                    </agm-info-window>
+                    
+                </agm-marker>
+          </agm-map>
+            <div class="box-btn"><button class = "btn-search" routerLink="/history" >BUSCAR DENÚNCIA</button></div>
         </div>
         <div class="container-coments">
             <div class="coment-1">

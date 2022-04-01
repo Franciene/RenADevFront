@@ -139,3 +139,18 @@ html{
     margin-top: 250px;
 
 }
+
+agm-map {
+    height: 600px;
+}
+
+.btn-view{
+    border-radius: 6px;
+    background: #754E4E;
+    color: #FFF2E3;
+    border: none;
+    padding: 8px;
+    &.add-image{
+        padding: 8px 12px;
+    }
+}
