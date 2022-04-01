@@ -4,12 +4,13 @@
         <span class = "item-menu" routerLink="/home">HOME</span>
         <span *ngIf="userLoggedIn" class = "item-menu" routerLink="/denounce">DENUNCIAR</span>
         <span *ngIf="!userLoggedIn" (click)="openDialog()" class = "item-menu">DENUNCIAR</span>
+        <span *ngIf="userLoggedIn && userLoggedIn.type" routerLink="/history" class = "item-menu">AVALIAR</span>
 
         <span *ngIf="userLoggedIn" class = "item-menu" routerLink="/history">HISTÓRICO</span>
         <!-- <span class = "item-menu">Vender jogo</span>
         <span class = "item-menu">FAQ</span> -->
         <!-- <img class = "item-img" src='../../../assets/user.svg' (click)="userLogado()"> -->
         <div *ngIf="!userLoggedIn"><button (click)="openDialog()">LOGIN</button></div>
-        <div  *ngIf="userLoggedIn"><img class="logOut" src='../../../assets/out.png'(click)="logOut()"></div>
+        <div *ngIf="userLoggedIn"><img class="logOut" src='../../../assets/out.png'(click)="logOut()"></div>
     </div>
 </div>

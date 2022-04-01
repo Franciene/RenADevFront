@@ -23,7 +23,7 @@
             <textarea class="input-denounce g" [(ngModel)]="description" placeholder="*DIGITE O OCORRIDO AQUI"></textarea>
 
             <div>
-                <input [(ngModel)]="images" type="file" class="btn-view add-image" placeholder="ADICIONAR IMAGEM" accept="image/png, image/gif, image/jpeg">
+                <input id="imagem" type="file" class="btn-view add-image" placeholder="ADICIONAR IMAGEM" accept="image/png, image/gif, image/jpeg" (change)="onFileSelected($event)">
             </div>
             <input class="input-denounce" [(ngModel)]="videos" type="text" placeholder="LINK PARA O VIDEO">
     

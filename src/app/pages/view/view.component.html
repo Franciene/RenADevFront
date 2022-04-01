@@ -1,3 +1,4 @@
+
 <div class="container-geral">
     <p class="text-denounce">DENÚNCIA </p>
     <div class="container-denounce">
@@ -26,8 +27,36 @@
                 <p class="header-title">DESCRIÇÃO</p>
                 <textarea class="input-denounce g" [(ngModel)]="description" disabled="disabled" placeholder="DESCRIÇÃO AQUI"></textarea>
 
-                <input class="input-denounce" [(ngModel)]="videos" type="text" placeholder="IMAGENS ADICIONADAS" disabled="disabled">
+                <input class="input-denounce" [(ngModel)]="images" type="text" placeholder="IMAGENS ADICIONADAS" disabled="disabled">
                 <input class="input-denounce" [(ngModel)]="videos" type="text" placeholder="LINK PARA O VIDEO" disabled="disabled">
+            </div>
+
+            <div class="container-status" *ngIf="user && user.type && status == 'PENDENTE'">
+                <button class="btn-view aproved" (click)="approveDenounce('APROVADO')"> APROVAR</button>
+                <button class="btn-view denied" (click)="approveDenounce('REPROVADO')"> REPROVAR</button>   
+            </div>
+
+            <div class="container-status" *ngIf="user && user.type && status == 'APROVADO'">
+                <button class="btn-view aproved"> APROVADO</button>   
+            </div>
+
+            <div class="container-status" *ngIf="user && user.type && status == 'REPROVADO'">
+                <button class="btn-view aproved"> REPROVADO</button>   
+            </div>
+
+
+
+            <div class="container-descr">
+                <p class="header-title">COMENTÁRIOS</p>
+                <input class="input-denounce" [(ngModel)]="newComent" type="text" placeholder="ADICIONAR " >
+                <button class="btn-view add-coment" id="new" (click)="addComent()"> ADICIONAR COMENTÁRIO</button>   
+            </div>            
+
+            <div class="container-comentaries" *ngFor = "let item of commentaries;">
+                <div class="container-coment">
+                    <input class="input-denounce" value={{item.coment}} disabled="disabled">
+                    <p class="header-title p">DATE: {{ item.date | date: "shortDate" }}</p>
+                </div>
             </div>
         </div>
     </div>
