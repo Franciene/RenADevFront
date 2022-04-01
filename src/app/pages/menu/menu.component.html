@@ -6,6 +6,8 @@
         <span *ngIf="!userLoggedIn" (click)="openDialog()" class = "item-menu">DENUNCIAR</span>
 
         <span *ngIf="userLoggedIn" class = "item-menu" routerLink="/history">HISTÓRICO</span>
+        <span *ngIf="userLoggedIn" class = "item-menu" routerLink="/search">BUSCAR</span>
+
         <!-- <span class = "item-menu">Vender jogo</span>
         <span class = "item-menu">FAQ</span> -->
         <!-- <img class = "item-img" src='../../../assets/user.svg' (click)="userLogado()"> -->
