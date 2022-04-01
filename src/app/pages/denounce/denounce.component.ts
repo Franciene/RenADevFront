@@ -27,7 +27,7 @@ export class DenounceComponent implements OnInit {
   end: any;
   user: any = null;
 
-  type: any = null;
+  type: any = false;
 
   constructor(private denounceService : DenounceService, private router: Router) { }
 
@@ -40,7 +40,7 @@ export class DenounceComponent implements OnInit {
     let data = {
       "userEmail": JSON.parse(localStorage.getItem('user') || 'null')?.email,
     }
-    let typeAdmin = JSON.parse(localStorage.getItem('admin') || 'null') ?? false;
+    let typeAdmin = JSON.parse(localStorage.getItem('admin') || 'null');
     if(this.type == '/history' && !typeAdmin){
       let data = {
         "userEmail": JSON.parse(localStorage.getItem('user') || 'null')?.email,
