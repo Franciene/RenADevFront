@@ -36,6 +36,7 @@ export class MenuComponent implements OnInit {
 
   logOut(){
     localStorage.removeItem('user');
+    localStorage.removeItem('admin');
     window.location.reload();
   }
 
