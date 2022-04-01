@@ -19,6 +19,7 @@ export class NewComponent implements OnInit {
   cep: any;
   street: any;
   number: any;
+  city:any;
   complement: any;
   district: any;
   description: any;
@@ -47,9 +48,13 @@ export class NewComponent implements OnInit {
       }
 
       const respZipCode = data;
+       
+      console.log(respZipCode);
+
       if (Object.keys(respZipCode).length > 0) {
         this.street = respZipCode.logradouro;
         this.district = respZipCode.bairro;
+        this.city = respZipCode.localidade;
       }
     });
   }
@@ -63,6 +68,12 @@ export class NewComponent implements OnInit {
     }
   }
 
+  onFileSelected(event: any) {
+    if(event.target.files.length > 0) 
+      this.images = event.target.files[0].name;
+  }
+  
+
   registerDenounce(){
     let data = {
       "userEmail": JSON.parse(localStorage.getItem('user') || 'null')?.email,
@@ -72,16 +83,22 @@ export class NewComponent implements OnInit {
       "complement": this.complement,
       "district": this.district,
       "description": this.description,
-      "images": null,
-      "videos": null,
-      "date": new Date().getDate()+'/'+(new Date().getMonth()+1)+'/'+new Date().getFullYear(),
+      "images": this.images,
+      "videos": this.videos,
+      "date": new Date(),
+      "city": this.city,
       "status": "PENDENTE",
-      "commentaries": null
+      "commentaries": []
     }
-    this.denounceService.registerDenounce(data).subscribe( resp => {
-      localStorage.setItem("user", JSON.stringify(resp.payload));
-      this.router.navigateByUrl('/home');
-    });
+
+    try{
+      this.denounceService.registerDenounce(data).subscribe( resp => {
+        localStorage.setItem("user", JSON.stringify(resp.payload));
+        this.router.navigateByUrl('/home');
+      });
+    }catch(error){
+      console.log("DEU RUIM ", error);
+    }
   }
 
 }

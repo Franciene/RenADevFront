@@ -21,10 +21,16 @@ export class DenounceService {
     return this.http.post(`https://rentadev-api.herokuapp.com/denounces/denounces/register-denounce`, data);
   }
 
-  getaddress(cep : any) : Observable<any> {
-    return this.http.get('https://h-apigateway.conectagov.estaleiro.serpro.gov.br/api-cep/v1/consulta/cep/'+cep, {
-      headers: {'Token URL': 'https://h-apigateway.conectagov.estaleiro.serpro.gov.br/oauth2/jwt-token'}
-   });
+  addComent(data : any) : Observable<any>{
+    return this.http.post(`https://rentadev-api.herokuapp.com/denounces/denounces/add-commentary`, data);
+  }
+
+  updateDenounce(data : any) : Observable<any>{
+    return this.http.post(`https://rentadev-api.herokuapp.com/denounces/denounces/approve-unapprove-denounce`, data);
+  }
+
+  searchDenounce(data : any) : Observable<any>{
+    return this.http.post(`https://rentadev-api.herokuapp.com/denounces/denounces/search`, data);    
   }
   
 }

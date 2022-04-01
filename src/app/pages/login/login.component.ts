@@ -29,7 +29,14 @@ export class LoginComponent implements OnInit {
       senha: this.senha
     }
     this.userService.login(data).subscribe( resp => {
-      localStorage.setItem("user", JSON.stringify(resp.payload));
+        const user = {
+          'name' : resp.payload[0].name,
+          'email' : resp.payload[0].email,
+          'type': 1
+        };
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("admin", JSON.stringify({type: true}));
+      window.location.reload();
       this.router.navigateByUrl('/home');
     });
   }
@@ -42,10 +49,10 @@ export class LoginComponent implements OnInit {
         // The signed-in user info.
         const user = {
           'name' : result?.user?.displayName,
-          'email' : result?.user?.email
-        }; 
+          'email' : result?.user?.email,
+          'type': 0
 
-        console.log(user);
+        }; 
         localStorage.setItem("user", JSON.stringify(user));
         window.location.reload();
         // ...
@@ -61,15 +68,13 @@ export class LoginComponent implements OnInit {
 
     this.auth.signInWithPopup(provider)
       .then((result) => {
-        // The signed-in user info.
-        // const user = result.user;
 
         const user = {
           'name' : result?.user?.displayName,
-          'email' : result?.user?.email
-        }; 
+          'email' : result?.user?.email,
+          'type': 0
 
-        console.log(user);
+        }; 
         localStorage.setItem("user", JSON.stringify(user));
         window.location.reload();
 

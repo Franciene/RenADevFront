@@ -4,7 +4,7 @@ html{
 }
 
 .container-full{
-    height: 200px;
+    height: 40%;
     background-color: #000000;
 }
 
@@ -33,9 +33,10 @@ html{
     position: absolute;
     background: #FFF2E3;
     border-radius: 15px;
-    height: 500px;
+    height: 700px;
     width: 80%;
     margin: 0 10%;
+    overflow-y: auto;
 }
 
 .header-table{
@@ -75,6 +76,9 @@ html{
     background: #754E4E;
     color: #FFF2E3;
     border: none;
+    padding:10px;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .list-denounces{
@@ -83,4 +87,35 @@ html{
     align-items: center;
     display: flex;
     flex-direction: column;
+}
+
+.input-denounce{
+    width: 327px;
+    height: 40px;
+    border: 1px solid rgba(69, 69, 69, 0.5);
+    background-color:#FFF2E3;
+    box-sizing: border-box;
+    border-radius: 6px;
+    margin: 17px 0;
+    &.m{
+        width: 127px;
+    }
+    &.g{
+        width: 627px;
+        height: 140px;
+    }
+}
+
+.container-search{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.container-btn-search{
+    display: flex;
+    justify-content: flex-end;
+    width: 80%;
+    border-bottom: 0.5px solid #754E4E;
 }

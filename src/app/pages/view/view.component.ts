@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DenounceService } from 'src/app/services/denounce.service';
@@ -24,7 +25,8 @@ export class ViewComponent implements OnInit {
   videos: any;
   date: any;
   status: any;
-  commentaries: any;
+  commentaries: any = [];
+  newComent: any = '';
 
   denounce : any;
 
@@ -34,35 +36,73 @@ export class ViewComponent implements OnInit {
 
     this.user = JSON.parse(localStorage.getItem('user') || 'null'); 
 
-    console.log(typeof(this.user));
+    console.log("ROTA",this.route.url);
 
     this.route.params.subscribe(params => {
       this.denounce = params['id'];
       this.findDenounce();
-      console.log("veio ? ",this.denounce);
     });
 
   }
 
   findDenounce(){
-    let data = {
-      "userEmail": JSON.parse(localStorage.getItem('user') || 'null')?.email,
-    }
-    this.denounceService.getDenouncesByUser(data).subscribe( resp => {
+    this.denounceService.getDenounces().subscribe( resp => {
       if(resp.success){
         let denounces = resp.payload[0];
-        console.log(denounces);
         let view = denounces.find((element : any) => element._id == this.denounce);
-        console.log(view);
-        this.cep = view.cep;
-        this.street = view.street;
-        this.number = view.number;
-        this.complement = view.complement;
-        this.district = view.district;
-        this.description = view.description;
-        this.status = view.status;
+        this.cep = view?.cep;
+        this.street = view?.street;
+        this.number = view?.number;
+        this.images = view?.images;
+        this.videos = view?.videos;
+        this.complement = view?.complement;
+        this.district = view?.district;
+        this.description = view?.description;
+        this.status = view?.status;
+        this.commentaries = view?.commentaries;
       }
     });
+  }
+
+  addComent(){
+    console.log(this.newComent, this.denounce);
+    if(this.commentaries && this.commentaries.length > 0){
+      this.commentaries.push({
+        "coment": this.newComent,
+        "date": new Date(),
+      });
+    }else{
+      this.commentaries = [{
+        "coment": this.newComent,
+        "date": new Date(),
+      }];
+    }
+    let data = {
+      "commentary": this.commentaries,
+      "denounceId": this.denounce, 
+    }
+
+    this.denounceService.addComent(data).subscribe( resp => {
+      this.newComent = '';
+      document.getElementById('new')?.setAttribute('value', ' ');
+    });
+
+  }
+
+  approveDenounce(type : string){
+    let data = {
+      "status": type,
+      "denounceId": this.denounce, 
+    }
+
+    this.denounceService.updateDenounce(data).subscribe( resp => {
+      if(resp?.success){
+       window.location.reload();
+      }
+    });
+
+  
+
   }
 
 }
