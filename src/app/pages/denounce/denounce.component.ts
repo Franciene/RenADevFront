@@ -25,10 +25,14 @@ export class DenounceComponent implements OnInit {
   list : any = [];
   start: any;
   end: any;
+  user: any = null;
+
+  type: any = null;
 
   constructor(private denounceService : DenounceService, private router: Router) { }
 
   ngOnInit(): void {
+    this.type = this.router.url;
     this.historyDenounce();
   }
 
@@ -36,9 +40,19 @@ export class DenounceComponent implements OnInit {
     let data = {
       "userEmail": JSON.parse(localStorage.getItem('user') || 'null')?.email,
     }
-    this.denounceService.getDenounces().subscribe( resp => {
-      if(resp.success) this.list = resp.payload[0];
-    });
+    let typeAdmin = JSON.parse(localStorage.getItem('admin') || 'null') ?? false;
+    if(this.type == '/history' && !typeAdmin){
+      let data = {
+        "userEmail": JSON.parse(localStorage.getItem('user') || 'null')?.email,
+      }
+      this.denounceService.getDenouncesByUser(data).subscribe( resp => {
+        if(resp.success) this.list = resp.payload[0];
+      });
+    }else{
+      this.denounceService.getDenounces().subscribe( resp => {
+        if(resp.success) this.list = resp.payload[0];
+      });
+    }
   }
 
   search(){

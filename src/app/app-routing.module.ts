@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'denounce', component: NewComponent},
   { path: 'login', component: LoginComponent},
   { path: 'history/view/:id', component: ViewComponent},
+  { path: 'search', component: DenounceComponent},
   { path: '', pathMatch: 'full', redirectTo: '/home'}
 ];
 @NgModule({

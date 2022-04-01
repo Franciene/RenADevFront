@@ -29,13 +29,13 @@ export class LoginComponent implements OnInit {
       senha: this.senha
     }
     this.userService.login(data).subscribe( resp => {
-      console.log(resp);
         const user = {
           'name' : resp.payload[0].name,
           'email' : resp.payload[0].email,
           'type': 1
         };
       localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("admin", JSON.stringify({type: true}));
       window.location.reload();
       this.router.navigateByUrl('/home');
     });
