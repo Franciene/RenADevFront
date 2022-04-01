@@ -20,7 +20,7 @@
             <div class="table-denounce" >
                 <p class="info-table">{{ denounce.date | date: "shortDate" }}</p>
                 <p class="info-table"> {{ denounce.status}} </p>
-                <button class="btn-view" [routerLink]="['/view/', denounce._id]" >VISUALIZAR</button>
+                <button class="btn-view" [routerLink]="['/history/view/', denounce._id]" >VISUALIZAR</button>
             </div>
             <div class="table-line"></div><br>
         </div>
